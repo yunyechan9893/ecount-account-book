@@ -49,6 +49,7 @@
           </div>
           <div class="content">
             <table class="table">
+            <tbody class="table-body">
               <tr>
                 <th>
                   <input class="btn checkbox" type="checkbox">
@@ -60,6 +61,7 @@
                 <th>금액</th>
               </tr>
               <!-- 동적으로 생성될 행 -->
+              </tbody>
             </table>
           </div>
         </div>
