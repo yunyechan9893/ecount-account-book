@@ -1,0 +1,76 @@
+.left {
+  width: 50rem;
+  padding: 2rem;
+  /* background-color: lightgrey; */
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  & .nav {
+    & .buttons {
+      display: inline-flex;
+      overflow: hidden;
+      border: 1px solid lightgray;
+
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+
+      & * {
+        padding: 5px;
+        background-color: whitesmoke;
+        border: none;
+      }
+    }
+
+    & .prev,
+    .next {
+      width: 20px;
+    }
+
+    & .date {
+      border-left: 1px solid lightgray;
+      border-right: 1px solid lightgray;
+    }
+  } /* nav */
+
+  & .main {
+    border: 1px solid whitesmoke;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: hidden;
+
+    & * {
+      border: none;
+    }
+
+    & .header {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      & .btn {
+        padding: 5px;
+      }
+    } /* header */
+
+    & .content {
+      & .table {
+        width: 100%;
+
+        & .row * {
+          text-align: center;
+        }
+      }
+    } /* content */
+  } /* main */
+
+  & .regist-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+} /* left */

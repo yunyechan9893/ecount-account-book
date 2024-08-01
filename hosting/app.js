@@ -22,6 +22,8 @@ app.engine('ntl', (filePath, options, callback) => {
 app.set('views', './views'); // specify the views directory
 app.set('view engine', 'ntl'); // register the template engine
 
+app.use(express.static(__dirname + '/public'));
+
 app.listen(PORT, () => {
   console.log('serverstarted');
 });
@@ -37,4 +39,19 @@ app.get('/', (req, res) => {
   res.redirect('/records');
 });
 
-// app.use(express.static('../frontend/public'));
+const http = require('http');
+
+app.get('/api/records', (req, res) => {
+  console.log('req');
+  const options = {
+    port: 3001,
+    path: '/',
+    method: 'GET',
+    hostname: 'localhost',
+  };
+
+  const request = http.request(options, (response) => {
+    console.log(response);
+  });
+  console.log(request);
+});
