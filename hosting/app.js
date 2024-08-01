@@ -9,7 +9,7 @@ app.engine('ntl', (filePath, options, callback) => {
     if (err) return callback(err);
 
     let rendered = content.toString();
-    let willReplace = options.willReplace;
+    let willReplace = options.willReplace ?? {};
 
     for (let key of Object.keys(willReplace)) {
       let value = willReplace[key];
@@ -19,39 +19,43 @@ app.engine('ntl', (filePath, options, callback) => {
     return callback(null, rendered);
   });
 });
+
 app.set('views', './views'); // specify the views directory
 app.set('view engine', 'ntl'); // register the template engine
 
+// STATIC FILE
 app.use(express.static(__dirname + '/public'));
 
 app.listen(PORT, () => {
   console.log('serverstarted');
 });
 
-// routes
+// ROUTES
 const recordsRouter = require('./routes/records');
 const statisticsRouter = require('./routes/statistics');
+const inputformRouter = require('./routes/inputform');
 
 app.use('/records', recordsRouter);
 app.use('/statistics', statisticsRouter);
+app.use('/inputform', inputformRouter);
 
 app.get('/', (req, res) => {
   res.redirect('/records');
 });
 
-const http = require('http');
+// const http = require('http');
 
-app.get('/api/records', (req, res) => {
-  console.log('req');
-  const options = {
-    port: 3001,
-    path: '/',
-    method: 'GET',
-    hostname: 'localhost',
-  };
+// app.get('/api/records', (req, res) => {
+//   console.log('req');
+//   const options = {
+//     port: 3001,
+//     path: '/',
+//     method: 'GET',
+//     hostname: 'localhost',
+//   };
 
-  const request = http.request(options, (response) => {
-    console.log(response);
-  });
-  console.log(request);
-});
+//   const request = http.request(options, (response) => {
+//     console.log(response);
+//   });
+//   console.log(request);
+// });

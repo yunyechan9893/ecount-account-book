@@ -1,8 +1,17 @@
+import { LOG } from '../common.js';
+import getMonthlyData from './getMonthlyData.js';
+
 // 테이블 데이터 동적 생성
-export default function tableHandler(datas_10) {
+export default async function tableHandler(month) {
   const mainTable = document.querySelector('.table');
 
-  for (let data of datas_10) {
+  LOG(getMonthlyData, month);
+
+  let datas = await getMonthlyData(month);
+
+  if (!datas) return;
+
+  for (let data of datas) {
     let tbody = document.createElement('tbody');
 
     let checkBox = document.createElement('input');

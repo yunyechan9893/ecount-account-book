@@ -63,9 +63,9 @@
             </table>
           </div>
         </div>
-        <button class="registBtn btn">
+        <a href="/inputform" class="registBtn btn">
           등록
-        </button>
+        </a>
       </div>
       <!--
       <div class="right">
