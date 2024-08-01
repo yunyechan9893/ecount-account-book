@@ -20,7 +20,10 @@ export default function tableHandler(datas_10) {
 
     for (let key in data) {
       let td = document.createElement('td');
-      td.textContent = data[key];
+      td.textContent =
+        typeof data[key] === 'number'
+          ? `${data[key].toLocaleString()} 원`
+          : data[key];
       tr.appendChild(td);
     }
 

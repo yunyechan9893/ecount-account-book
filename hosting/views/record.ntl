@@ -63,7 +63,7 @@
             </table>
           </div>
         </div>
-        <button class="regist-btn btn">
+        <button class="registBtn btn">
           등록
         </button>
       </div>
