@@ -11,13 +11,13 @@ export default async function handleSubmit() {
 
   const obj = {
     memberId: 1,
-    category,
     transactionDate,
+    category,
+    description,
+    amount,
+    memo,
     asset,
     classification,
-    amount,
-    description,
-    memo,
   };
 
   const result = await fetch('http://localhost:3001/finances', {
