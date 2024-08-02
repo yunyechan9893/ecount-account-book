@@ -5,7 +5,6 @@ export default function handleSubmit() {
 // 카테고리 체크
 function parseCategory() {
   const categorys = document.getElementsByName('category');
-
   let result;
 
   categorys.forEach((it) => {
