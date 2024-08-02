@@ -2,6 +2,8 @@
 export default async function getMonthlyData(date) {
   let now = new Date();
 
+  const URL = 'http://172.29.12.156:3001';
+
   if (!date) {
     date = `${now.getFullYear()}-${(now.getMonth() + 1)
       .toString()
@@ -12,7 +14,7 @@ export default async function getMonthlyData(date) {
       .padStart(2, 0)}-${date.getDate().toString().padStart(2, 0)}`;
   }
 
-  const result = await fetch(`http://localhost:3001/finance?date=${date}`, {
+  const result = await fetch(`${URL}/finance?date=${date}`, {
     method: 'GET',
     headers: {
       memberId: 1,

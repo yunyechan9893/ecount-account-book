@@ -9,6 +9,8 @@ export default async function handleSubmit() {
   const description = document.querySelector('#description').value;
   const memo = document.querySelector('#memo').value;
 
+  const URL = 'http://172.29.12.156:3001';
+
   // 유효성 검사 로직
 
   const obj = {
@@ -22,7 +24,7 @@ export default async function handleSubmit() {
     classification,
   };
 
-  const result = await fetch('http://localhost:3001/finances', {
+  const result = await fetch(`${URL}/finances`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

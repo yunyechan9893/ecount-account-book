@@ -18,8 +18,6 @@ export default function renewHeader(date) {
     )
   );
 
-  console.log(start, end);
-
   const period = document.querySelector('#period');
   period.textContent = `${start} ~ ${end}`;
 }
