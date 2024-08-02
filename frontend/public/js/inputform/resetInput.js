@@ -1,10 +1,19 @@
 export default function resetInput() {
-  document.getElementsByName('category').value = '';
-  document.querySelector('#date').value = '';
-  document.querySelector('#time').value = '';
-  document.querySelector('#asset').value = '카카오뱅크';
-  document.querySelector('#classification').value = '';
-  document.querySelector('#amount').value = '';
-  document.querySelector('#description').value = '';
-  document.querySelector('#memo').value = '';
+  const category = document.querySelector('#category');
+  const date = document.querySelector('#date');
+  const time = document.querySelector('#time');
+  const asset = document.querySelector('#asset');
+  const classification = document.querySelector('.classification');
+  const amount = document.querySelector('#amount');
+  const description = document.querySelector('#description');
+  const memo = document.querySelector('#memo');
+
+  classification.checked = true;
+  date.value = '';
+  time.value = '';
+  asset.value = '카카오뱅크';
+  category.selectedIndex = 0;
+  amount.value = '';
+  description.value = '';
+  memo.value = '';
 }

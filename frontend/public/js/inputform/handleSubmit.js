@@ -1,3 +1,5 @@
+import resetInput from './resetInput.js';
+
 export default async function handleSubmit() {
   const classification = handleClassification();
   const transactionDate = handleDate();
@@ -29,6 +31,10 @@ export default async function handleSubmit() {
   });
 
   console.log(result);
+  console.log(resetInput.status);
+  if (result.status === 200) {
+    resetInput();
+  }
 }
 
 // 카테고리 체크
