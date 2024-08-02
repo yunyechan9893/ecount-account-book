@@ -1,3 +1,5 @@
 import { renewData } from './renewData.js';
 
-renewData();
+let date = new Date();
+
+renewData(date);

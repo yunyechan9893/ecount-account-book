@@ -4,7 +4,7 @@ import renewHeader from './renewHeader.js';
 export async function renewData(date) {
   const data = await getMonthlyData(date);
 
-  renewHeader(data);
+  renewHeader(date);
 
   const amounts = document.querySelectorAll('.amount');
   const ratios = document.querySelectorAll('.ratio');
@@ -87,4 +87,3 @@ let order = [
 
 order = order.map((it, idx) => [it, idx]);
 order = new Map(order);
-console.log(order);

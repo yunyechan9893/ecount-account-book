@@ -12,7 +12,11 @@
       <div class="box">
         <div class="header">
           <h2>비용수익</h2>
-          <div id="period">#fromDate# ~ #toDate#</div>
+          <div class="flex">
+            <button><</button>
+              <div id="period">#fromDate# ~ #toDate#</div>
+            <button>></button>
+          </div>
         </div>
         <div class="content flex">
           <div class="left">
