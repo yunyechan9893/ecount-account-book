@@ -17,9 +17,11 @@ export default async function tableHandler(data, type) {
     return;
   }
 
+  console.log(data)
   for (let datum of data) {
+    console.log(datum.classification, type)
 
-    if (type != "ALL" && datum.category.category_type != type) {
+    if (type != "ALL" && datum.classification != type) {
       continue;
     }
 
@@ -48,16 +50,16 @@ export default async function tableHandler(data, type) {
     tr.appendChild(dateTd);
 
     const assetTd = createTd(datum.asset)
-    tr.appendChild(dateTd);
+    tr.appendChild(assetTd);
 
-    const classificationTd = createTd(datum.classification)
-    tr.appendChild(classificationTd);
+    const categoryTypeTd = createTd(datum.category.category_type)
+    tr.appendChild(categoryTypeTd);
 
     const categoryTd = createTd(datum.category.middle_category)
     tr.appendChild(categoryTd);
 
-    const descriptionTd = createTd(datum.description)
-    tr.appendChild(descriptionTd);
+    // const descriptionTd = createTd(datum.description)
+    // tr.appendChild(descriptionTd);
 
     const amountTd = createTd(datum.amount)
     tr.appendChild(amountTd);
