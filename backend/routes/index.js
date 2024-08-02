@@ -26,7 +26,7 @@ router.post('/finances', [
     }
 
     try {
-      saveFinance(req.body)
+      await saveFinance(req.body)
     } catch {
       return res.status(500).json({ errors: errors.array() });
     }
@@ -42,12 +42,13 @@ router.get('/finance', [
   async (req, res) => {
     const memberId = req.headers.memberid;
     const date = req.query.date;
+    const type = req.query.type;
 
     if (date == null) {
       throw new errors
     }
 
-    const data = await getAllFinance(memberId, date)
+    const data = await getAllFinance(memberId, date, type)
 
     return res.status(200).send(data)
 });
