@@ -11,8 +11,9 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 let corsOptions = {
-  origin: 'https://localhost:3000/',
-  credentials: true
+  origin: 'http://localhost:3000',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE']
 }
 
 app.use(cors(corsOptions));
