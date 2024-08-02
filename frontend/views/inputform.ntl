@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내역 입력</title>
+    <link href="/css/main.css" rel="stylesheet"/>
+    <link href="/css/inputform.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div class="container">
+      <form class="form">
+        <div>
+          <input type="radio" id="income" name="category" value="INCOME" checked/>
+          <label for="income">수입</label>
+          <input type="radio" id="expenditure" name="category" value="EXPENDITURE"/>
+          <label for="expenditure">지출</label>
+        </div>
+        <div>
+          <label for="date">날짜</label>
+          <input type="text" id="date" />
+          <label for="time">시간</label>
+          <input type="text" id="time" />
+        </div>
+        <div>
+          <label for="asset">자산</label>
+          <select id="asset">
+            <option value="카카오뱅크">카카오뱅크</option>
+          </select>
+        </div>
+        <div>
+          <label for="classification">분류</label>
+          <select>
+            <option id="classification" value="식비">식비</option>
+          </select>
+        </div>
+        <div>
+          <label for="amount">금액</label>
+          <input id="amount" type="text" />
+        </div>
+        <div>
+          <label for="description">내용</label>
+          <input id="description" type="text" />
+        </div>
+        <div>
+          <label for="memo">메모</label>
+          <input id="memo" type="text" />
+        </div>
+        <div class="buttons">
+          <button class="regist-btn btn">등록</button>
+          <button type="button" class="reset-btn btn">초기화</button>
+          <a href="/records">
+            <button type="button" class="cancel-btn btn">
+              취소
+            </button>
+          </a>
+        </div>
+      </form>
+    </div>
+    <script type="module" src="/js/inputform/main.js"></script>
+  </body>
+</html>
