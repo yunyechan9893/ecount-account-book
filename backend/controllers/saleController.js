@@ -15,7 +15,7 @@ async function getAllFinance(memberId, date, type) {
         }
     };
 
-    if (type!=null) {
+    if (type!=null && type != "ALL") {
         whereCondition.classification = type
     }
 
@@ -27,6 +27,55 @@ async function getAllFinance(memberId, date, type) {
             attributes: ['category_type', 'major_category', 'middle_category']
         }]
     })
+}
+
+async function getFinanceCount(memberId, date) {
+    const [year, month] = date.split('-').map(Number);
+    const startDate = new Date(year, month - 1, 1,  0,  0,  0,  0); // 월은 0부터 시작하므로 month - 1
+    const endDate   = new Date(year, month - 1, 31, 23, 59, 59, 999); // 해당 월의 마지막 날의 끝 시간
+
+
+    let finance = await Finance.findAll({
+        attributes: ['amount', 'classification'],
+        where: {
+            memberId: memberId,
+            transactionDate: {
+                [Op.between]: [startDate, endDate]
+            }
+        }
+    })
+
+    let response = {
+        money:{
+            all: 0,
+            income: 0,
+            expenditure: 0
+        },
+        count: {
+            all: 0,
+            income: 0,
+            expenditure: 0,
+        }
+    }
+
+    if (finance==0) {
+        return response
+    }
+
+    finance.forEach(item => {
+        response.count.all += 1;
+        response.money.all += item.amount;
+
+        if (item.classification == "INCOME") {
+            response.count.income += 1;
+            response.money.income += item.amount;
+        } else {
+            response.count.expenditure += 1;
+            response.money.expenditure += item.amount
+        }
+    });
+
+    return response
 }
 
 async function saveFinance(
@@ -57,10 +106,9 @@ async function saveFinance(
     } catch (error) {
         console.error('Error saving finance:', error);
         throw error;
-    }
-
-
+    } 
     
 }
 
-module.exports = {getAllFinance, saveFinance}
+
+module.exports = {getAllFinance, saveFinance, getFinanceCount}

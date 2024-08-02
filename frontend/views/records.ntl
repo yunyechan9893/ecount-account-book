@@ -15,35 +15,38 @@
         </h3>
         <div class="nav">
           <div class="buttons">
-            <button class="btn prev"><</button>
+            <button class="btn" id="prev"><</button>
             <div class="date">#yy-mm#</div>
-            <button class="btn next">></button>
+            <button class="btn" id="next">></button>
           </div>
         </div>
         <div class="main">
           <div class="header flex">
-            <button class="btn">
+            <button class="btn" id="all">
               <div>
-                전체 (#totalCnt#)
+                전체 (<span id="all-count">0</span>)
               </div>
               <div>
-                #totalAmount# 원
-              </div>
-            </button>
-            <button class="btn">
-              <div>
-                수입 (#incomeCnt#)
-              </div>
-              <div>
-                #incomeAmount# 원
+                <span id="all-money">0</span> 
+                <span>원</span>
               </div>
             </button>
-            <button class="btn">
+            <button class="btn" id="income">
               <div>
-                지출 (#expenditureCnt#)
+                수입 (<span id="income-count">0</span>)
               </div>
               <div>
-                #expenditureAmount# 원
+                <span id="income-money">0</span> 
+                <span>원</sapn>
+              </div>
+            </button>
+            <button class="btn" id="expenditure">
+              <div>
+                지출 (<span id="expenditure-count">0</span>)
+              </div>
+              <div>
+                <span id="expenditure-money">0</span> 
+                <span>원</sapn>
               </div>
             </button>
           </div>
@@ -51,14 +54,14 @@
             <table class="table">
             <tbody class="table-body">
               <tr>
-                <th>
+                <th style="width:40px">
                   <input class="btn checkbox" type="checkbox">
                 </th>
-                <th>날짜</th>
-                <th>자산</th>
-                <th>분류</th>
-                <th>내용</th>
-                <th>금액</th>
+                <th style="width:350px">날짜</th>
+                <th style="width:300px">자산</th>
+                <th style="width:200px">분류</th>
+                <th style="width:200px">내용</th>
+                <th style="width:200px">금액</th>
               </tr>
               <!-- 동적으로 생성될 행 -->
               </tbody>
