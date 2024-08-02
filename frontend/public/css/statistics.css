@@ -1,11 +1,24 @@
+* {
+  font-size: 20px;
+}
+
 .container {
   display: flex;
   justify-content: center;
-  align-tracks: center;
+  align-items: center;
+  height: 90vh;
 
   & .box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
     & .header {
       text-align: center;
+
+      & h2 {
+        font-size: 35px;
+      }
     } /* header */
 
     & .content {
@@ -16,6 +29,25 @@
   } /* box */
 } /* container */
 
+.abs-btn {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  padding: 15px;
+
+  & a {
+    text-decoration: none;
+  }
+}
+
 table {
   width: 100%;
+}
+
+.row-header {
+  font-weight: bold;
+}
+
+.row {
+  padding-left: 10px;
 }
