@@ -49,7 +49,6 @@ router.get('/finance', [
     }
 
     const data = await getAllFinance(memberId, date, type)
-    console.log(data)
     return res.status(200).send(data)
 });
 

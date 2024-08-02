@@ -15,6 +15,7 @@ async function getAllFinance(memberId, date, type) {
         }
     };
 
+
     if (type!=null && type != "ALL") {
         whereCondition.classification = type
     }

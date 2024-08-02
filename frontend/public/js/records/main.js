@@ -76,18 +76,17 @@ const allButton = document.getElementById("all");
 const incomeButton = document.getElementById("income");
 const expenditureButton = document.getElementById("expenditure");
 
+
 function clickAll() {
     type = "ALL"
     const date = updateDate();
     getFinance(date, type);
-    console.log(type)
 }
 
 function clickIncome() {
     type = "INCOME"
     const date = updateDate();
     getFinance(date, type);
-    console.log(type)
 }
 
 function clickExpenditure() {
@@ -96,6 +95,8 @@ function clickExpenditure() {
     getFinance(date, type);
     console.log(type)
 }
+
+getFinance(updateDate(), type);
 
 allButton.addEventListener('click', clickAll);
 incomeButton.addEventListener('click', clickIncome);
