@@ -1,4 +1,21 @@
 .container {
-  & .header {
-  } /* header */
+  display: flex;
+  justify-content: center;
+  align-tracks: center;
+
+  & .box {
+    & .header {
+      text-align: center;
+    } /* header */
+
+    & .content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 50rem;
+    }
+  } /* box */
 } /* container */
+
+table {
+  width: 100%;
+}
