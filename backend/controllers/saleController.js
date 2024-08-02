@@ -15,7 +15,7 @@ async function getAllFinance(memberId, date, type) {
         }
     };
 
-    if (type!=null) {
+    if (type!=null && type != "ALL") {
         whereCondition.classification = type
     }
 
@@ -46,9 +46,16 @@ async function getFinanceCount(memberId, date) {
     })
 
     let response = {
-        all: 0,
-        income: 0,
-        expenditure: 0
+        money:{
+            all: 0,
+            income: 0,
+            expenditure: 0
+        },
+        count: {
+            all: 0,
+            income: 0,
+            expenditure: 0,
+        }
     }
 
     if (finance==0) {
@@ -56,12 +63,15 @@ async function getFinanceCount(memberId, date) {
     }
 
     finance.forEach(item => {
-        response.all += item.amount;
+        response.count.all += 1;
+        response.money.all += item.amount;
 
         if (item.classification == "INCOME") {
-            response.income += item.amount
+            response.count.income += 1;
+            response.money.income += item.amount;
         } else {
-            response.expenditure += item.amount
+            response.count.expenditure += 1;
+            response.money.expenditure += item.amount
         }
     });
 
@@ -99,5 +109,6 @@ async function saveFinance(
     } 
     
 }
+
 
 module.exports = {getAllFinance, saveFinance, getFinanceCount}

@@ -49,7 +49,7 @@ router.get('/finance', [
     }
 
     const data = await getAllFinance(memberId, date, type)
-
+    console.log(data)
     return res.status(200).send(data)
 });
 
@@ -65,7 +65,6 @@ async (req, res) => {
   }
 
   const data = await getFinanceCount(memberId, date)
-
   return res.status(200).send(data)
 });
 
