@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>월간 기록</title>
+    <link href="/css/statistics.css" rel="stylesheet"></link>
+    <link href="/css/main.css" rel="stylesheet"></link>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div>비용수익</div>
+        <div>#fromDate# ~ #toDate#</div>
+      </div>
+      <div class="content flex">
+        <div class="left">
+          <table>
+            <tr class="cost-total">
+              <td>총 비용</td>
+              <td>얼마</td>
+              <td>비율</td>
+            </tr>
+            <tr class="cost-flow">
+              <td>유동생활비</td>
+              <td>얼마</td>
+              <td>비율</td>
+            </tr>
+            <tr class="cost-fix">
+              <td>고정생활비</td>
+              <td>얼마</td>
+              <td>비율</td>
+            </tr>
+            <tr class="cost-etc">
+              <td>증여, 세금, 기타 비용</td>
+              <td>얼마</td>
+              <td>비율</td>
+            </tr>
+            <tr class="total-flow">
+              <td>총 유동</td>
+              <td>얼마</td>
+              <td>비율</td>
+            </tr>
+            <tr class="total-fix">
+              <td>총 고정</td>
+              <td>얼마</td>
+              <td>비율</td>
+            </tr>
+          </table>
+        </div>
+        <div class="right">
+          <table>
+            <tr>
+              <td>총 수익</td>
+              <td>얼마</td>
+              <td>비율</td>
+            </tr>
+            <tr>
+              <td>월 급여</td>
+              <td>얼마</td>
+              <td>비율</td>
+            </tr>
+            <tr>
+              <td>비정기소득</td>
+              <td>얼마</td>
+              <td>비율</td>
+            </tr>
+            <tr>
+              <td>총 유동</td>
+              <td>얼마</td>
+              <td>비율</td>
+            </tr>
+            <tr>
+              <td>총 고정</td>
+              <td>얼마</td>
+              <td>비율</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/js/statistics/main.js"></script>
+  </body>
+</html>
