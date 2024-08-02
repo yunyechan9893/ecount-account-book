@@ -12,14 +12,18 @@ export default function dateChecker() {
       result = value;
     } else if (length < 6) {
       result += value.substring(0, 4);
-      result += '/';
-      result += value.substring(4);
+      if (!date.value.endsWith('/')) {
+        result += '/';
+        result += value.substring(4);
+      }
     } else {
       result += value.substring(0, 4);
       result += '/';
       result += value.substring(4, 6);
-      result += '/';
-      result += value.substring(6);
+      if (!date.value.endsWith('/')) {
+        result += '/';
+        result += value.substring(6);
+      }
     }
     date.value = result;
   });

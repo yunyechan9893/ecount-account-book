@@ -12,8 +12,10 @@ export default function timeChecker() {
       result = value;
     } else {
       result += value.substring(0, 2);
-      result += ':';
-      result += value.substring(2);
+      if (!time.value.endsWith(':')) {
+        result += ':';
+        result += value.substring(2);
+      }
     }
 
     time.value = result;
