@@ -1,5 +1,5 @@
 const { getAllFinance, saveFinance } = require('../controllers/saleController');
-const { body, validationResult  } = require('express-validator');
+const { body, validationResult, header  } = require('express-validator');
 var express = require('express');
 var router = express.Router();
 
@@ -34,9 +34,22 @@ router.post('/finances', [
   return res.status(200).send("저장 성공")
 });
 
-router.get('/finance', async (req, res) => {
-  console.log(getAllFinance(req.headers))
-  return res.status(200)
+// 통합 금액(+건수), 수입(+건수), 지출(+건수), 날짜, 자산, 분류, 내용, 금액
+// 월별로 조회 가능
+router.get('/finance', [
+    header('memberId').exists().withMessage('멤버 아이디를 입력해주세요'),
+  ], 
+  async (req, res) => {
+    const memberId = req.headers.memberid;
+    const date = req.query.date;
+
+    if (date == null) {
+      throw new errors
+    }
+
+    const data = await getAllFinance(memberId, date)
+
+    return res.status(200).send(data)
 });
 
 module.exports = router;

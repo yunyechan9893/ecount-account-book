@@ -10,8 +10,8 @@ module.exports = function(sequelize){
             autoIncrement: true,
             allowNull: false
         },
-        categotyType: {
-            field: 'categoty_type',
+        categoryType: {
+            field: 'category_type',
             type: DataTypes.STRING,
             allowNull: false
         },

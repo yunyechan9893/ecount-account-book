@@ -25,7 +25,7 @@ module.exports = function(sequelize){
             type: DataTypes.DATE,
             allowNull: false
         },
-        category: {
+        categoryId: {
             field: 'category_id',
             type: DataTypes.BIGINT,
             allowNull: false,

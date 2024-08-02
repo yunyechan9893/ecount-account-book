@@ -1,12 +1,23 @@
 const { Member, Finance, Category } = require('../models')
-const member = require('../models/member')
+const { Op } = require('sequelize');
 
-async function getAllFinance(header) {
-    return Finance.findAll({
-        attributes: ['id', 'transaction_id', 'category', 'description', 'amount', 'memo', 'asset', 'classification'],
+async function getAllFinance(memberId, date) {
+    const [year, month] = date.split('-').map(Number);
+    const startDate = new Date(year, month - 1, 1,  0,  0,  0,  0); // 월은 0부터 시작하므로 month - 1
+    const endDate   = new Date(year, month - 1, 31, 23, 59, 59, 999); // 해당 월의 마지막 날의 끝 시간
+
+    return await Finance.findAll({
+        attributes: ['id', 'transaction_date', 'category_id', 'description', 'amount', 'memo', 'asset', 'classification'],
         where: {
-            memberId: header.memberId
-        }
+            memberId: memberId,
+            transactionDate: {
+                [Op.between]: [startDate, endDate]
+            }
+        },
+        include: [{
+            model: Category,
+            attributes: ['category_type', 'major_category', 'middle_category']
+        }]
     })
 }
 
