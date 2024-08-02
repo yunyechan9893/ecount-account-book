@@ -1,4 +1,4 @@
-const { getAllFinance, saveFinance } = require('../controllers/saleController');
+const { getAllFinance, saveFinance, getFinanceCount } = require('../controllers/saleController');
 const { body, validationResult, header  } = require('express-validator');
 var express = require('express');
 var router = express.Router();
@@ -45,12 +45,28 @@ router.get('/finance', [
     const type = req.query.type;
 
     if (date == null) {
-      throw new errors
+      return res.status(400).json({errors: "날짜를 입력하세요"});
     }
 
     const data = await getAllFinance(memberId, date, type)
 
     return res.status(200).send(data)
+});
+
+router.get('/finance/count', [
+  header('memberId').exists().withMessage('멤버 아이디를 입력해주세요'),
+], 
+async (req, res) => {
+  const memberId = req.headers.memberid;
+  const date = req.query.date;
+
+  if (date == null) {
+    return res.status(400).json({errors: "날짜를 입력하세요"});
+  }
+
+  const data = await getFinanceCount(memberId, date)
+
+  return res.status(200).send(data)
 });
 
 module.exports = router;
