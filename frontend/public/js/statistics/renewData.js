@@ -18,6 +18,7 @@ export async function renewData(date) {
     nodeArray[order.get(category.middle_category)] += amount;
 
     if (category.category_type === '지출') {
+      // 지출 -> EXPENDITURE
       nodeArray[0] += amount;
       if (category.major_category === '고정생활비') {
         nodeArray[19] += amount;
@@ -25,6 +26,7 @@ export async function renewData(date) {
         nodeArray[18] += amount;
       }
     } else if (category.category_type === '수입') {
+      // 수입 -> INCOME
       nodeArray[20] += amount;
       if (category.major_category === '월급여') {
         nodeArray[29] += amount;
@@ -38,17 +40,37 @@ export async function renewData(date) {
     amounts[idx].textContent = `${it.toLocaleString()} 원`;
   });
 
+  nodeArray[30] = nodeArray[20] - nodeArray[0];
+
+  amounts[30].textContent = nodeArray[30].toLocaleString() + ' 원';
+
   for (let i = 0; i < 20; i++) {
+    if (nodeArray[0] === 0) {
+      ratios[i].textContent = `0 %`;
+      continue;
+    }
+
     ratios[i].textContent = `${((nodeArray[i] / nodeArray[0]) * 100).toFixed(
       1
     )} %`;
   }
 
-  for (let i = 20; i < order.size; i++) {
+  for (let i = 20; i < 30; i++) {
+    if (nodeArray[20] === 0) {
+      ratios[i].textContent = `0 %`;
+      continue;
+    }
     ratios[i].textContent = `${((nodeArray[i] / nodeArray[20]) * 100).toFixed(
       1
     )} %`;
-    console.log(i);
+  }
+
+  ratios[30].textContent = `${((nodeArray[30] / nodeArray[20]) * 100).toFixed(
+    1
+  )} %`;
+
+  if (nodeArray[20] === 0) {
+    ratios[30].textContent = '0 %';
   }
 }
 
@@ -83,6 +105,7 @@ let order = [
   '기타수익',
   '총유동수익', // 28
   '총고정수익', // 29
+  '총단기순손익', // 30
 ];
 
 order = order.map((it, idx) => [it, idx]);

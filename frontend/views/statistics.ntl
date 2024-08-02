@@ -12,10 +12,10 @@
       <div class="box">
         <div class="header">
           <h2>비용수익</h2>
-          <div class="flex">
-            <button><</button>
+          <div class="flex" style="justify-content: center; gap: 10px">
+            <button id="left-btn" class="btn"><</button>
               <div id="period">#fromDate# ~ #toDate#</div>
-            <button>></button>
+            <button id="right-btn" class="btn">></button>
           </div>
         </div>
         <div class="content flex">
@@ -172,6 +172,11 @@
               </tr>
               <tr>
                 <td class="title row-header">총 고정</td>
+                <td class="amount">얼마</td>
+                <td class="ratio">비율</td>
+              </tr>
+              <tr>
+                <td class="title row-header">총 당기순손익</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>

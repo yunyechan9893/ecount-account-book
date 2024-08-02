@@ -3,6 +3,7 @@ export default async function getMonthlyData(date) {
   let now = new Date();
 
   const URL = 'http://172.29.12.156:3001';
+  // const URL = 'http://localhost:3001';
 
   if (!date) {
     date = `${now.getFullYear()}-${(now.getMonth() + 1)
