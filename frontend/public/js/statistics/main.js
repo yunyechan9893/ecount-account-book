@@ -1,10 +1,26 @@
-async function getData() {
-  const data = await fetch('http://localhost:3001/finance?date=2024-08-02', {
-    method: 'GET',
-    headers: {
-      memberId: 1,
-    },
-  });
-}
+import { renewData } from './renewData.js';
 
-getData();
+let date = new Date();
+
+renewData(date);
+
+const leftBtn = document.querySelector('#left-btn');
+const rightBtn = document.querySelector('#right-btn');
+
+leftBtn.addEventListener('click', () => {
+  date = new Date(date.getFullYear(), date.getMonth(), 0);
+  renewData(date);
+});
+
+rightBtn.addEventListener('click', () => {
+  date = new Date(date.getFullYear(), date.getMonth() + 2, 0);
+
+  if (
+    date.getFullYear() >= new Date().getFullYear() &&
+    date.getMonth() > new Date().getMonth()
+  ) {
+    date = new Date();
+    return;
+  }
+  renewData(date);
+});

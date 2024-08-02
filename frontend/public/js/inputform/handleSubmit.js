@@ -1,3 +1,5 @@
+import resetInput from './resetInput.js';
+
 export default async function handleSubmit() {
   const classification = handleClassification();
   const transactionDate = handleDate();
@@ -6,6 +8,8 @@ export default async function handleSubmit() {
   const amount = +document.querySelector('#amount').value;
   const description = document.querySelector('#description').value;
   const memo = document.querySelector('#memo').value;
+
+  const URL = 'http://172.29.12.156:3001';
 
   // 유효성 검사 로직
 
@@ -20,7 +24,7 @@ export default async function handleSubmit() {
     classification,
   };
 
-  const result = await fetch('http://localhost:3001/finances', {
+  const result = await fetch(`${URL}/finances`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -29,6 +33,10 @@ export default async function handleSubmit() {
   });
 
   console.log(result);
+  console.log(resetInput.status);
+  if (result.status === 200) {
+    resetInput();
+  }
 }
 
 // 카테고리 체크

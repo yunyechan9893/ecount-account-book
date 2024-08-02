@@ -12,108 +12,112 @@
       <div class="box">
         <div class="header">
           <h2>비용수익</h2>
-          <div id="period">#fromDate# ~ #toDate#</div>
+          <div class="flex" style="justify-content: center; gap: 10px">
+            <button id="left-btn" class="btn"><</button>
+              <div id="period">#fromDate# ~ #toDate#</div>
+            <button id="right-btn" class="btn">></button>
+          </div>
         </div>
         <div class="content flex">
           <div class="left">
             <table>
               <tr class="cost-total">
-                <td class="title">총 비용</td>
+                <td class="title row-header">총 비용</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr class="cost-flow">
-                <td class="title">유동생활비</td>
+                <td class="title row-header">유동생활비</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">식비</td>
+                <td class="title row">식비</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">여행,여가</td>
+                <td class="title row">여행,여가</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">교통비</td>
+                <td class="title row">교통비</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">생활용품</td>
+                <td class="title row">생활용품</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">지식,문화</td>
+                <td class="title row">지식,문화</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">의복,미용</td>
+                <td class="title row">의복,미용</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">수리,수선</td>
+                <td class="title row">수리,수선</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr class="cost-fix">
-                <td class="title">고정생활비</td>
+                <td class="title row-header">고정생활비</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">주거,통신</td>
+                <td class="title row">주거,통신</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">교육비</td>
+                <td class="title row">교육비</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">의료,건강,보험</td>
+                <td class="title row">의료,건강,보험</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr class="cost-etc">
-                <td class="title">증여, 세금, 기타 비용</td>
+                <td class="title row">증여, 세금, 기타 비용</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">증여,세금,이자</td>
+                <td class="title row">증여,세금,이자</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">경조사비</td>
+                <td class="title row">경조사비</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr class="total-wi">
-                <td class="title">아내카드비</td>
+                <td class="title row">아내카드비</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">아내사랑해</td>
+                <td class="title row">아내사랑해</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr class="total-flow">
-                <td class="title">총 유동</td>
+                <td class="title row-header">총 유동</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr class="total-fix">
-                <td class="title">총 고정</td>
+                <td class="title row-header">총 고정</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
@@ -122,52 +126,57 @@
           <div class="right">
             <table>
               <tr>
-                <td class="title">총 수익</td>
+                <td class="title row-header">총 수익</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">월 급여</td>
+                <td class="title row">월 급여</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">월급</td>
+                <td class="title row">월급</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">퇴직연금(회사몫)</td>
+                <td class="title row">퇴직연금(회사몫)</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">비정기소득</td>
+                <td class="title row">비정기소득</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">상여금</td>
+                <td class="title row">상여금</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">배당금</td>
+                <td class="title row">배당금</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">기타수익</td>
+                <td class="title row">기타수익</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">총 유동</td>
+                <td class="title row-header">총 유동</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
               <tr>
-                <td class="title">총 고정</td>
+                <td class="title row-header">총 고정</td>
+                <td class="amount">얼마</td>
+                <td class="ratio">비율</td>
+              </tr>
+              <tr>
+                <td class="title row-header">총 당기순손익</td>
                 <td class="amount">얼마</td>
                 <td class="ratio">비율</td>
               </tr>
@@ -176,7 +185,7 @@
         </div>
       </div>
     </div>
-    <button>
+    <button class="abs-btn">
       <a href="/records">뒤로가기</a>
     </button>
     <script type="module" src="/js/statistics/main.js"></script>
