@@ -41,6 +41,28 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+// Finance 모델 정의
+Finance.belongsTo(Member, {
+  foreignKey: 'member_id', // Finance 모델의 category_id가 Category 모델의 id와 매칭됨
+  targetKey: 'id'
+});
+
+// Category 모델 정의 (이미 정의된 경우, 추가할 필요 없음)
+Category.hasMany(Finance, {
+  foreignKey: 'member_id'
+});
+
+// Finance 모델 정의
+Finance.belongsTo(Category, {
+  foreignKey: 'category_id', // Finance 모델의 category_id가 Category 모델의 id와 매칭됨
+  targetKey: 'id'
+});
+
+// Category 모델 정의 (이미 정의된 경우, 추가할 필요 없음)
+Category.hasMany(Finance, {
+  foreignKey: 'category_id'
+});
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
