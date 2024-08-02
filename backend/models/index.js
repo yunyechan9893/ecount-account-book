@@ -18,6 +18,7 @@ if (config.use_env_variable) {
 
 const Member = require('./member')(sequelize);
 const Finance = require('./finance')(sequelize);
+const Category = require('./category')(sequelize);
 
 fs
   .readdirSync(__dirname)
@@ -43,4 +44,4 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-module.exports = {db, Member, Finance};
+module.exports = {db, Member, Finance, Category};

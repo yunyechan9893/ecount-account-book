@@ -26,9 +26,13 @@ module.exports = function(sequelize){
             allowNull: false
         },
         category: {
-            field: 'category',
-            type: DataTypes.STRING,
-            allowNull: false
+            field: 'category_id',
+            type: DataTypes.BIGINT,
+            allowNull: false,
+            references: {
+                model: 'category',
+                key: 'id'
+            }
         },
         description: {
             field: 'description',
@@ -44,6 +48,16 @@ module.exports = function(sequelize){
             field: 'memo',
             type: DataTypes.STRING,
             allowNull: true
+        },
+        asset: {
+            field: 'asset',
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        classification: {
+            field: 'classification',
+            type: DataTypes.STRING,
+            allowNull: false
         }
     }, 
     {

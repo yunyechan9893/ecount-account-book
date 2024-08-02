@@ -1,4 +1,4 @@
-const { getMember, saveFinance } = require('../controllers/saleController');
+const { getAllFinance, saveFinance } = require('../controllers/saleController');
 const { body, validationResult  } = require('express-validator');
 var express = require('express');
 var router = express.Router();
@@ -10,11 +10,13 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/finances', [
-    body("memberId").exists().withMessage('memberId is required'),
-    body("transactionDate").exists().withMessage('transactionDate is required'),
-    body("category").exists().withMessage('category is required').isIn(["INCOME", "EXPENDITURE"]).withMessage('category must be either INCOME or EXPENDITURE'),
-    body("description").exists().withMessage('description is required'),
-    body("amount").exists().withMessage('amount is required'),
+    body("memberId").exists().withMessage('멤버아이디가 비었습니다'),
+    body("transactionDate").exists().withMessage('사용 혹은 입금된 날짜를 입력해주세요'),
+    body("category").exists().withMessage('카테고리를 입력해주세요'),
+    body("description").exists().withMessage('내용이 필요합니다'),
+    body("amount").exists().withMessage('가격을 입력해주세요'),
+    body("asset").exists().withMessage('카드사 종류를 입력해주세요'),
+    body("classification").exists().withMessage('출처 종류를 확인해주세요').isIn(["INCOME", "EXPENDITURE"]).withMessage('INCOME/EXPENDITURE을 입력해주세요'),
   ],
   async (req, res) => {
 
@@ -32,9 +34,9 @@ router.post('/finances', [
   return res.status(200).send("저장 성공")
 });
 
-router.get('/test2', async (req, res, next) => {
-  const member = getMember(req)
-  return res.status(200).send(member)
+router.get('/finance', async (req, res) => {
+  console.log(getAllFinance(req.headers))
+  return res.status(200)
 });
 
 module.exports = router;
