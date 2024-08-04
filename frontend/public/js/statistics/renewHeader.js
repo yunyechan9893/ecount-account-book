@@ -1,4 +1,4 @@
-import { dateToString } from '../common.js';
+import { dateToString } from '../_common.js';
 
 export default function renewHeader(date) {
   if (!(date instanceof Date)) {

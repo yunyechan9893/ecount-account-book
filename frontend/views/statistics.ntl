@@ -190,6 +190,7 @@
       뒤로가기
     </button>
     </a>
-    <script type="module" src="/js/statistics.js"></script>
+    <script type="module" src="/js/statistics/main.js"></script>
+    <script type="module" src="/js/_common.js"></script>
   </body>
 </html>
