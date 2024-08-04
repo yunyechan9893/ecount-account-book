@@ -1,7 +1,7 @@
 import tableHandler from './createTable.js';
 
-// const URL = 'http://172.29.12.156:3001';
-const URL = 'http://localhost:3001';
+const URL = 'http://172.29.12.156:3001';
+// const URL = 'http://localhost:3001';
 
 export async function getCount(date) {
   return new Promise((resolve, reject) => {

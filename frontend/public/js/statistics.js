@@ -10,13 +10,23 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./public/js/_common.js":
+/*!******************************!*\
+  !*** ./public/js/_common.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   LOG: () => (/* binding */ LOG),\n/* harmony export */   dateToString: () => (/* binding */ dateToString)\n/* harmony export */ });\nasync function LOG(func, ...args) {\r\n\tconsole.log(`==========${func.name}==========`);\r\n\treturn await func(...args);\r\n}\r\n\r\nfunction dateToString(date) {\r\n\treturn `${date.getFullYear()}-${(date.getMonth() + 1)\r\n\t\t.toString()\r\n\t\t.padStart(2, 0)}-${date.getDate().toString().padStart(2, 0)}`;\r\n}\r\n\n\n//# sourceURL=webpack://account-book/./public/js/_common.js?");
+
+/***/ }),
+
 /***/ "./public/js/statistics/getMonthlyData.js":
 /*!************************************************!*\
   !*** ./public/js/statistics/getMonthlyData.js ***!
   \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ getMonthlyData)\n/* harmony export */ });\n// date는 Date 타입 매개변수\r\nasync function getMonthlyData(date) {\r\n  let now = new Date();\r\n\r\n  // const URL = 'http://172.29.12.156:3001';\r\n  const URL = 'http://localhost:3001';\r\n\r\n  if (!date) {\r\n    date = `${now.getFullYear()}-${(now.getMonth() + 1)\r\n      .toString()\r\n      .padStart(2, 0)}-${now.getDate().toString().padStart(2, 0)}`;\r\n  } else {\r\n    date = `${date.getFullYear()}-${(date.getMonth() + 1)\r\n      .toString()\r\n      .padStart(2, 0)}-${date.getDate().toString().padStart(2, 0)}`;\r\n  }\r\n\r\n  const result = await fetch(`${URL}/finance?date=${date}`, {\r\n    method: 'GET',\r\n    headers: {\r\n      memberId: 1,\r\n    },\r\n  });\r\n\r\n  return await result.json();\r\n}\r\n\n\n//# sourceURL=webpack://account-book/./public/js/statistics/getMonthlyData.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ getMonthlyData)\n/* harmony export */ });\n// date는 Date 타입 매개변수\r\nasync function getMonthlyData(date) {\r\n  let now = new Date();\r\n\r\n  const URL = 'http://172.29.12.156:3001';\r\n  // const URL = 'http://localhost:3001';\r\n\r\n  if (!date) {\r\n    date = `${now.getFullYear()}-${(now.getMonth() + 1)\r\n      .toString()\r\n      .padStart(2, 0)}-${now.getDate().toString().padStart(2, 0)}`;\r\n  } else {\r\n    date = `${date.getFullYear()}-${(date.getMonth() + 1)\r\n      .toString()\r\n      .padStart(2, 0)}-${date.getDate().toString().padStart(2, 0)}`;\r\n  }\r\n\r\n  const result = await fetch(`${URL}/finance?date=${date}`, {\r\n    method: 'GET',\r\n    headers: {\r\n      memberId: 1,\r\n    },\r\n  });\r\n\r\n  return await result.json();\r\n}\r\n\n\n//# sourceURL=webpack://account-book/./public/js/statistics/getMonthlyData.js?");
 
 /***/ }),
 
@@ -46,7 +56,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ renewHeader)\n/* harmony export */ });\nObject(function webpackMissingModule() { var e = new Error(\"Cannot find module '../common.js'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n\r\n\r\nfunction renewHeader(date) {\r\n  if (!(date instanceof Date)) {\r\n    date = new Date();\r\n  }\r\n\r\n  const start = Object(function webpackMissingModule() { var e = new Error(\"Cannot find module '../common.js'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(date).slice(0, 8) + '01';\r\n  const end = Object(function webpackMissingModule() { var e = new Error(\"Cannot find module '../common.js'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(\r\n    new Date(\r\n      Math.min(\r\n        new Date(\r\n          Object(function webpackMissingModule() { var e = new Error(\"Cannot find module '../common.js'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(date).slice(0, 8) +\r\n            new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()\r\n        ),\r\n        Date.now()\r\n      )\r\n    )\r\n  );\r\n\r\n  const period = document.querySelector('#period');\r\n  period.textContent = `${start} ~ ${end}`;\r\n}\r\n\n\n//# sourceURL=webpack://account-book/./public/js/statistics/renewHeader.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ renewHeader)\n/* harmony export */ });\n/* harmony import */ var _common_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_common.js */ \"./public/js/_common.js\");\n\r\n\r\nfunction renewHeader(date) {\r\n  if (!(date instanceof Date)) {\r\n    date = new Date();\r\n  }\r\n\r\n  const start = (0,_common_js__WEBPACK_IMPORTED_MODULE_0__.dateToString)(date).slice(0, 8) + '01';\r\n  const end = (0,_common_js__WEBPACK_IMPORTED_MODULE_0__.dateToString)(\r\n    new Date(\r\n      Math.min(\r\n        new Date(\r\n          (0,_common_js__WEBPACK_IMPORTED_MODULE_0__.dateToString)(date).slice(0, 8) +\r\n            new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()\r\n        ),\r\n        Date.now()\r\n      )\r\n    )\r\n  );\r\n\r\n  const period = document.querySelector('#period');\r\n  period.textContent = `${start} ~ ${end}`;\r\n}\r\n\n\n//# sourceURL=webpack://account-book/./public/js/statistics/renewHeader.js?");
 
 /***/ })
 

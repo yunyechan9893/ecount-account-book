@@ -9,8 +9,8 @@ export default async function handleSubmit() {
   const description = document.querySelector('#description').value;
   const memo = document.querySelector('#memo').value;
 
-  // const URL = 'http://172.29.12.156:3001';
-  const URL = 'http://localhost:3001';
+  const URL = 'http://172.29.12.156:3001';
+  // const URL = 'http://localhost:3001';
 
   // 날짜 유효성 검사
   if (isNaN(new Date(transactionDate))) {
