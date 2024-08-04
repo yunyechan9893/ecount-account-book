@@ -70,7 +70,3 @@ classfication.forEach((it) => {
 		}
 	});
 });
-
-let a = 1234567;
-console.log(a.toLocaleString());
-console.log(Number(a.toLocaleString()));
