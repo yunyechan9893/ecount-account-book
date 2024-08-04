@@ -22,26 +22,26 @@ const incrementButton = document.getElementById('next');
 let currentDate = new Date(dateElement.textContent + '-01');
 
 function updateDate() {
-  const year = currentDate.getFullYear();
-  const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // 월을 두 자리 숫자로 포맷
+	const year = currentDate.getFullYear();
+	const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // 월을 두 자리 숫자로 포맷
 
-  // 날짜를 HTML 요소에 업데이트합니다.
-  dateElement.textContent = `${year}-${month}`;
-  return `${year}-${month}`;
+	// 날짜를 HTML 요소에 업데이트합니다.
+	dateElement.textContent = `${year}-${month}`;
+	return `${year}-${month}`;
 }
 
 function increaseMonth() {
-  currentDate.setMonth(currentDate.getMonth() + 1);
-  const date = updateDate();
-  getCount(date);
-  getFinance(date, type);
+	currentDate.setMonth(currentDate.getMonth() + 1);
+	const date = updateDate();
+	getCount(date);
+	getFinance(date, type);
 }
 
 function decreaseMonth() {
-  currentDate.setMonth(currentDate.getMonth() - 1);
-  const date = updateDate();
-  getCount(date);
-  getFinance(date, type);
+	currentDate.setMonth(currentDate.getMonth() - 1);
+	const date = updateDate();
+	getCount(date);
+	getFinance(date, type);
 }
 
 incrementButton.addEventListener('click', increaseMonth);
@@ -51,24 +51,23 @@ const allButton = document.getElementById('all');
 const incomeButton = document.getElementById('income');
 const expenditureButton = document.getElementById('expenditure');
 
-
 function clickAll() {
-    type = "ALL"
-    const date = updateDate();
-    getFinance(date, type);
+	type = 'ALL';
+	const date = updateDate();
+	getFinance(date, type);
 }
 
 function clickIncome() {
-    type = "INCOME"
-    const date = updateDate();
-    getFinance(date, type);
+	type = 'INCOME';
+	const date = updateDate();
+	getFinance(date, type);
 }
 
 function clickExpenditure() {
-  type = 'EXPENDITURE';
-  const date = updateDate();
-  getFinance(date, type);
-  console.log(type);
+	type = 'EXPENDITURE';
+	const date = updateDate();
+	getFinance(date, type);
+	console.log(type);
 }
 
 getFinance(updateDate(), type);
