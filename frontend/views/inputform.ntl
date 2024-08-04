@@ -58,7 +58,7 @@
           </div>
           <div>
             <label for="amount">금액</label>
-            <input id="amount" type="text" />
+            <input id="amount" type="number" />
           </div>
           <div>
             <label for="description">내용</label>
