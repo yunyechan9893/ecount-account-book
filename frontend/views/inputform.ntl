@@ -80,6 +80,6 @@
         </div>
       </form>
     </div>
-    <script type="module" src="/js/inputform/main.js"></script>
+    <script src="/js/inputform.js"></script>
   </body>
 </html>
