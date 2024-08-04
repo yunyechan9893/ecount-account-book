@@ -10,62 +10,64 @@
   <body>
     <div class="container">
       <form class="form">
-        <div>
-          <input type="radio" id="income" name="classification" class="classification" value="INCOME" checked/>
-          <label for="income">수입</label>
-          <input type="radio" id="expenditure" name="classification" class="classification" value="EXPENDITURE"/>
-          <label for="expenditure">지출</label>
-        </div>
-        <div>
-          <label for="date">날짜</label>
-          <input type="text" placeholder="YYYY/MM/DD"  id="date" maxlength="10"/>
-          <label for="time">시간</label>
-          <input type="text" placeholder="HH:MM" id="time" maxlength="5"/>
-        </div>
-        <div>
-          <label for="asset">자산</label>
-          <select id="asset">
-            <option value="카카오뱅크">카카오뱅크</option>
-            <option value="신한은행">신한은행</option>
-            <option value="우리은행">우리은행</option>
-            <option value="국민은행">국민은행</option>
-            <option value="농협은행">농협은행</option>
-          </select>
-        </div>
-        <div>
-          <label for="category">분류</label>
-          <select id="category">
-            <option value="식비">식비</option>
-            <option value="여행,여가">여행,여가</option>
-            <option value="교통비">교통비</option>
-            <option value="생활용품">생활용품</option>
-            <option value="지식,문화">지식,문화</option>
-            <option value="의복,미용">의복,미용</option>
-            <option value="수리,수선">수리,수선</option>
-            <option value="주거,통신">주거,통신</option>
-            <option value="교육비">교육비</option>
-            <option value="의료,건강,보험">의료,건강,보험</option>
-            <option value="증여,세금,이자">증여,세금,이자</option>
-            <option value="경조사비">경조사비</option>
-            <option value="아내사랑해">아내사랑해</option>
-            <option value="월급">월급</option>
-            <option value="퇴직연금(회사몫)">퇴직연금(회사몫)</option>
-            <option value="상여금">상여금</option>
-            <option value="배당금">배당금</option>
-            <option value="기타수익">기타수익</option>
-          </select>
-        </div>
-        <div>
-          <label for="amount">금액</label>
-          <input id="amount" type="text" />
-        </div>
-        <div>
-          <label for="description">내용</label>
-          <input id="description" type="text" />
-        </div>
-        <div>
-          <label for="memo">메모</label>
-          <input id="memo" type="text" />
+        <div class="content">
+          <div>
+            <input type="radio" id="income" name="classification" class="classification" value="INCOME" checked/>
+            <label for="income">수입</label>
+            <input type="radio" id="expenditure" name="classification" class="classification" value="EXPENDITURE"/>
+            <label for="expenditure">지출</label>
+          </div>
+          <div>
+            <label for="date">날짜</label>
+            <input type="text" placeholder="YYYY/MM/DD"  id="date" maxlength="10"/>
+            <label for="time">시간</label>
+            <input type="text" placeholder="HH:MM" id="time" maxlength="5"/>
+          </div>
+          <div>
+            <label for="asset">자산</label>
+            <select id="asset">
+              <option value="카카오뱅크">카카오뱅크</option>
+              <option value="신한은행">신한은행</option>
+              <option value="우리은행">우리은행</option>
+              <option value="국민은행">국민은행</option>
+              <option value="농협은행">농협은행</option>
+            </select>
+          </div>
+          <div>
+            <label for="category">분류</label>
+            <select id="category">
+              <option class="income" value="식비">식비</option>
+              <option class="income" value="여행,여가">여행,여가</option>
+              <option class="income" value="교통비">교통비</option>
+              <option class="income" value="생활용품">생활용품</option>
+              <option class="income" value="지식,문화">지식,문화</option>
+              <option class="income" value="의복,미용">의복,미용</option>
+              <option class="income" value="수리,수선">수리,수선</option>
+              <option class="income" value="주거,통신">주거,통신</option>
+              <option class="income" value="교육비">교육비</option>
+              <option class="income" value="의료,건강,보험">의료,건강,보험</option>
+              <option class="income" value="증여,세금,이자">증여,세금,이자</option>
+              <option class="income" value="경조사비">경조사비</option>
+              <option class="income" value="아내사랑해">아내사랑해</option>
+              <option class="expenditure" style="display: none" value="월급">월급</option>
+              <option class="expenditure" style="display: none" value="퇴직연금(회사몫)">퇴직연금(회사몫)</option>
+              <option class="expenditure" style="display: none" value="상여금">상여금</option>
+              <option class="expenditure" style="display: none" value="배당금">배당금</option>
+              <option class="expenditure" style="display: none" value="기타수익">기타수익</option>
+            </select>
+          </div>
+          <div>
+            <label for="amount">금액</label>
+            <input id="amount" type="number" />
+          </div>
+          <div>
+            <label for="description">내용</label>
+            <input id="description" type="text" />
+          </div>
+          <div>
+            <label for="memo">메모</label>
+            <input id="memo" type="text" />
+          </div>
         </div>
         <div class="buttons">
           <button class="regist-btn btn">등록</button>
