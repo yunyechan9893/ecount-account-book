@@ -5,17 +5,32 @@ export default async function handleSubmit() {
 	const transactionDate = handleDate();
 	const asset = document.querySelector('#asset').value;
 	const category = document.querySelector('#category').value;
-	const amount = +document.querySelector('#amount').value;
+	const amount = document.querySelector('#amount').value;
 	const description = document.querySelector('#description').value;
 	const memo = document.querySelector('#memo').value;
 
 	const URL = 'http://172.29.12.156:3001';
 
-	console.log(transactionDate);
-	console.log(new Date(transactionDate));
-	// 유효성 검사 로직
+	// 날짜 유효성 검사
 	if (isNaN(new Date(transactionDate))) {
 		alert('날짜가 올바르지 않아요!');
+		return;
+	}
+
+	// 날짜 유효성 검사
+	if (new Date(transactionDate) > new Date()) {
+		alert('미래의 날짜는 입력할 수 없어요!');
+		return;
+	}
+
+	// 금액 유효성 검사
+	if (amount === '') {
+		alert('금액을 입력해주세요!');
+		return;
+	}
+
+	if (+amount < 0) {
+		alert('금액은 양수로 입력해주세요!');
 		return;
 	}
 
@@ -24,7 +39,7 @@ export default async function handleSubmit() {
 		transactionDate,
 		category,
 		description,
-		amount,
+		amount: +amount,
 		memo,
 		asset,
 		classification,
@@ -40,6 +55,7 @@ export default async function handleSubmit() {
 
 	if (result.status === 200) {
 		resetInput();
+		alert('내역을 성공적으로 등록했어요!');
 	}
 }
 
